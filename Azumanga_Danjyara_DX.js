@@ -5,6 +5,15 @@ const decklist = [
   "img/Pixle Tomo Tile.png",
   "img/Pixle Yomi Tile.png"
 ];
+let playerCardsList = [
+
+]
+
+function checkDealCard(){
+  if(playerCardsList.length<8){
+    dealCard()
+  }
+}
 
 function dealCard() {
   const newCard = document.createElement("img");
@@ -12,6 +21,9 @@ function dealCard() {
 
   const playersHand = document.getElementById("playersHand");
   playersHand.appendChild(newCard); // Add to the player's hand
+
+  playerCardsList.push(newCard)
+  console.log(playerCardsList)
 }
 
 function getRandomCard() {
