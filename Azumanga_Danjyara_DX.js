@@ -9,8 +9,14 @@ let playerCardsList = [
 
 ]
 
+document.getElementById("playersHand").addEventListener("click", function(event) {
+  if (event.target.tagName === "IMG") {
+    event.target.remove();
+  }
+});
+
 function checkDealCard(){
-  if(playerCardsList.length<8){
+  if(playerCardsList.length<9){
     dealCard()
   }
 }
