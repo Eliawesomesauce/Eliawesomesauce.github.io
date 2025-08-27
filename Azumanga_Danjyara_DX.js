@@ -12,9 +12,11 @@ let playerCardsList = [
 document.getElementById("playersHand").addEventListener("click", function(event) {
   if (event.target.tagName === "IMG") {
     event.target.remove();
+    var index = playerCardsList.indexOf(event.target)
+    playerCardsList.splice(1,index)
+    console.log(playerCardsList)
   }
 });
-
 
 function checkDealCard(){
   if(playerCardsList.length<8){
@@ -32,6 +34,7 @@ function dealCard() {
   playersHand.appendChild(newCard); // Add to the player's hand
 
   playerCardsList.push(newCard)
+   playerCardsList.sort()
   console.log(playerCardsList)
 }
 
