@@ -11,9 +11,12 @@ let playerCardsList = [
 
 document.getElementById("playersHand").addEventListener("click", function(event) {
   if (event.target.tagName === "IMG") {
-    event.target.remove();
-    var index = playerCardsList.indexOf(event.target)
-    playerCardsList.splice(1,index)
+    //event.target.remove();
+    //var index = playerCardsList.indexOf(event.target);
+    //playerCardsList.splice(1,index);
+    event.target.src = playerCardsList[playerCardsList.length - 1].src;
+    document.getElementById("nextCard").innerHTML = ''
+    playerCardsList.pop()
     console.log(playerCardsList)
   }
 });
@@ -28,10 +31,10 @@ function checkDealCard(){
 
 function dealCard() {
   const newCard = document.createElement("img");
-  newCard.src = getRandomCard(); // Set the image source
+  newCard.src = getRandomCard();
 
   const playersHand = document.getElementById("playersHand");
-  playersHand.appendChild(newCard); // Add to the player's hand
+  playersHand.appendChild(newCard);
 
   playerCardsList.push(newCard)
    playerCardsList.sort()
