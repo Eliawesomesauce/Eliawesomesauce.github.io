@@ -17,6 +17,11 @@ document.getElementById("playersHand").addEventListener("click", function(event)
     event.target.src = playerCardsList[playerCardsList.length - 1].src;
     document.getElementById("nextCard").innerHTML = ''
     playerCardsList.pop()
+    const newCard = document.createElement("img")
+    newCard.src = getRandomCard()
+    const nextCard = document.getElementById("nextCard")
+    nextCard.appendChild(newCard)
+    playerCardsList.push(newCard)
     console.log(playerCardsList)
   }
 });
